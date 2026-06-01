@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kar Sewa Dal | Volunteer Organization</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#1b4332;
+    --accent:#40916c;
+    --bg:#f1f8f5;
+    --text:#1b1b1b;
+    --card:#ffffff;
+    --shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+}
+
+/* NAV */
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(27,67,50,0.95);
+    backdrop-filter: blur(10px);
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 8%;
+}
+
+.logo{
+    color:white;
+    font-weight:600;
+    font-size:1.4rem;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:18px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    padding:6px 10px;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    background:rgba(255,255,255,0.15);
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+    background:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url('https://images.unsplash.com/photo-1520975916090-3105956dac38') center/cover;
+    color:white;
+}
+
+.hero h1{
+    font-size:3rem;
+}
+
+.hero p{
+    margin-top:10px;
+    opacity:0.9;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:var(--accent);
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+/* SECTIONS */
+section{
+    padding:80px 10%;
+}
+
+section h2{
+    text-align:center;
+    margin-bottom:40px;
+    color:var(--primary);
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+/* CARDS */
+.card{
+    background:var(--card);
+    padding:20px;
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+/* GALLERY */
+.gallery img{
+    width:100%;
+    border-radius:10px;
+    height:200px;
+    object-fit:cover;
+}
+
+/* EVENTS */
+.event-date{
+    font-size:13px;
+    color:var(--accent);
+    margin-top:5px;
+}
+
+/* CONTACT */
+form{
+    max-width:600px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input, textarea{
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    outline:none;
+}
+
+button{
+    padding:14px;
+    background:var(--primary);
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:var(--accent);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    background:var(--primary);
+    color:white;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    nav{
+        flex-direction:column;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+        margin-top:10px;
+    }
+
+    .hero h1{
+        font-size:2.2rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<div class="logo">Kar Sewa Dal</div>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#mission">Mission</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+<div>
+<h1>Kar Sewa Dal</h1>
+<p>Serving Humanity with Faith, Unity & Dedication</p>
+<a href="#about" class="btn">Learn More</a>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<h2>About Us</h2>
+<div class="card">
+<p>
+Kar Sewa Dal is a volunteer-based organization dedicated to serving society through selfless service (seva).
+We believe in unity, humanity, and helping those in need without expecting anything in return.
+</p>
+</div>
+</section>
+
+<!-- MISSION -->
+<section id="mission">
+<h2>Our Mission</h2>
+<div class="grid">
+
+<div class="card">
+<h3>🙏 Seva</h3>
+<p>Helping communities through volunteer service.</p>
+</div>
+
+<div class="card">
+<h3>🤝 Unity</h3>
+<p>Bringing people together for social good.</p>
+</div>
+
+<div class="card">
+<h3>🌱 Humanity</h3>
+<p>Serving without discrimination or expectation.</p>
+</div>
+
+</div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+<h2>Upcoming Events</h2>
+<div class="grid">
+
+<div class="card">
+<h3>Langar Seva Drive</h3>
+<p class="event-date">June 2026</p>
+<p>Free food distribution for those in need.</p>
+</div>
+
+<div class="card">
+<h3>Cleanliness Drive</h3>
+<p class="event-date">July 2026</p>
+<p>Community cleaning and awareness campaign.</p>
+</div>
+
+<div class="card">
+<h3>Tree Plantation</h3>
+<p class="event-date">August 2026</p>
+<p>Planting trees for a greener future.</p>
+</div>
+
+</div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+<h2>Gallery</h2>
+<div class="grid gallery">
+
+<img src="https://images.unsplash.com/photo-1601758123927-196d3b4c6c28">
+<img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d">
+<img src="https://images.unsplash.com/photo-1593113598332-cd288d649433">
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact Us</h2>
+
+<form>
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea placeholder="Your Message"></textarea>
+<button type="submit">Send Message</button>
+</form>
+
+</section>
+
+<footer>
+<p>© 2026 Kar Sewa Dal | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
