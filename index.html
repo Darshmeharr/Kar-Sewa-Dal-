@@ -3,69 +3,422 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kar Sewa Dal</title>
-<link rel="stylesheet" href="style.css">
+<title>Kar Sewa Dal Sanstha</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f8f9fa;
+    color:#333;
+    line-height:1.6;
+}
+
+header{
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c');
+    background-size:cover;
+    background-position:center;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero{
+    max-width:900px;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    margin-bottom:20px;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    background:#ff9800;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    margin:5px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#e68900;
+}
+
+nav{
+    position:fixed;
+    width:100%;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    padding:15px;
+    z-index:1000;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    list-style:none;
+    flex-wrap:wrap;
+}
+
+nav ul li{
+    margin:10px 15px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+}
+
+section{
+    padding:80px 10%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    font-size:2.5rem;
+    color:#ff9800;
+}
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:15px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    color:#ff9800;
+    margin-bottom:10px;
+}
+
+.stats{
+    background:#ff9800;
+    color:white;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    text-align:center;
+    gap:20px;
+}
+
+.stat h3{
+    font-size:3rem;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.contact{
+    background:#222;
+    color:white;
+    text-align:center;
+}
+
+.contact form{
+    max-width:600px;
+    margin:auto;
+}
+
+.contact input,
+.contact textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:5px;
+}
+
+.contact button{
+    background:#ff9800;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:768px){
+    .hero h1{
+        font-size:2.5rem;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+}
+</style>
 </head>
+
 <body>
+
 <nav>
-  <div class="logo">Kar Sewa Dal</div>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#programs">Programs</a></li>
-    <li><a href="#impact">Impact</a></li>
-    <li><a href="#volunteer">Volunteer</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#langar">Langar Seva</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 </nav>
 
-<header class="hero">
-  <div>
-    <h1>Serving Humanity Through Seva</h1>
-    <p>Selfless Service • Stronger Communities</p>
-    <a class="btn" href="#volunteer">Become a Volunteer</a>
-  </div>
+<header id="home">
+<div class="hero">
+<h1>Kar Sewa Dal Sanstha</h1>
+<h3>सेवा ही परम धर्म है</h3>
+<p>
+Serving Humanity Through Compassion, Care and Community Support
+</p>
+
+<a href="#services" class="btn">Our Services</a>
+<a href="#contact" class="btn">Join Us</a>
+</div>
 </header>
 
 <section id="about">
-<h2>Our Mission</h2>
-<p>Kar Sewa Dal works to uplift communities through education, healthcare, environmental initiatives, and humanitarian service.</p>
+<div class="section-title">
+<h2>About Us</h2>
+</div>
+
+<div class="about">
+<img src="https://images.unsplash.com/photo-1469571486292-b53601020f8a" alt="NGO">
+
+<div>
+<h3>Who We Are</h3>
+<p>
+Kar Sewa Dal Sanstha is a dedicated social service organization committed to helping patients, poor families, children, women, elderly citizens and animals through selfless service.
+</p>
+
+<br>
+
+<h3>Mission</h3>
+<p>
+To ensure support, dignity and care reaches every needy individual.
+</p>
+
+<br>
+
+<h3>Vision</h3>
+<p>
+A compassionate society where no person suffers due to lack of healthcare, education or basic necessities.
+</p>
+</div>
+</div>
 </section>
 
-<section id="programs">
-<h2>What We Do</h2>
+<section class="stats">
+<div class="stats-grid">
+
+<div class="stat">
+<h3>40</h3>
+<p>Active Services</p>
+</div>
+
+<div class="stat">
+<h3>9</h3>
+<p>Tuition Centers</p>
+</div>
+
+<div class="stat">
+<h3>1000+</h3>
+<p>Lives Helped</p>
+</div>
+
+<div class="stat">
+<h3>50+</h3>
+<p>Future Goal</p>
+</div>
+
+</div>
+</section>
+
+<section id="services">
+<div class="section-title">
+<h2>Our Services</h2>
+</div>
+
 <div class="cards">
-<div class="card"><h3>Education</h3><p>Support for students and learning initiatives.</p></div>
-<div class="card"><h3>Healthcare</h3><p>Medical camps and awareness programs.</p></div>
-<div class="card"><h3>Environment</h3><p>Tree plantation and sustainability drives.</p></div>
-<div class="card"><h3>Relief</h3><p>Emergency assistance during crises.</p></div>
+
+<div class="card">
+<h3>🏥 Healthcare Support</h3>
+<p>Hospital assistance, medicines, wheelchairs, oxygen cylinders and ambulance services.</p>
+</div>
+
+<div class="card">
+<h3>🎓 Education</h3>
+<p>Tuition centers, scholarships and educational support for underprivileged children.</p>
+</div>
+
+<div class="card">
+<h3>👩 Women Empowerment</h3>
+<p>Free stitching training and employment opportunities for women.</p>
+</div>
+
+<div class="card">
+<h3>🐄 Animal Welfare</h3>
+<p>Treatment and care for injured and stray animals.</p>
+</div>
+
+<div class="card">
+<h3>🌳 Environment</h3>
+<p>Tree plantation drives and cleanliness campaigns.</p>
+</div>
+
+<div class="card">
+<h3>🤝 Social Welfare</h3>
+<p>Monthly ration distribution and disaster relief support.</p>
+</div>
+
 </div>
 </section>
 
-<section id="impact">
-<h2>Our Impact</h2>
-<div class="stats">
-<div><span class="counter" data-target="10000">0</span><p>Lives Impacted</p></div>
-<div><span class="counter" data-target="5000">0</span><p>Trees Planted</p></div>
-<div><span class="counter" data-target="2000">0</span><p>Volunteers</p></div>
+<section id="langar">
+<div class="section-title">
+<h2>🍲 40th Service - Langar Seva</h2>
+</div>
+
+<div class="card">
+<h3>No Patient Should Sleep Hungry</h3>
+
+<p>
+Kar Sewa Dal Sanstha proudly launches its 40th service, Langar Seva.
+</p>
+
+<br>
+
+<p>
+Patients and attendants can receive nutritious meals through meal coupons redeemable at selected dhabas and hospital canteens.
+</p>
+
+<br>
+
+<h4>
+Our Goal:
+"Every patient and attendant should have access to a full meal."
+</h4>
+
 </div>
 </section>
 
-<section id="volunteer">
-<h2>Join Our Mission</h2>
+<section id="gallery">
+<div class="section-title">
+<h2>Gallery</h2>
+</div>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c">
+<img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac">
+<img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846">
+<img src="https://images.unsplash.com/photo-1469571486292-b53601020f8a">
+
+</div>
+</section>
+
+<section class="contact" id="contact">
+
+<div class="section-title">
+<h2 style="color:white;">Contact Us</h2>
+</div>
+
+<p>Become a Volunteer or Support Our Mission</p>
+
+<br>
+
 <form>
-<input type="text" placeholder="Full Name">
-<input type="email" placeholder="Email">
-<textarea placeholder="Why do you want to volunteer?"></textarea>
+
+<input type="text" placeholder="Full Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="tel" placeholder="Phone Number">
+
+<textarea rows="5" placeholder="Your Message"></textarea>
+
 <button type="submit">Submit</button>
+
 </form>
+
+<br>
+
+<p>📍 Office Address</p>
+<p>📞 Phone Number</p>
+<p>📧 Email Address</p>
+
 </section>
 
-<section id="contact">
-<h2>Contact Us</h2>
-<p>Email: info@karsewadal.org</p>
-<p>Phone: +91 XXXXX XXXXX</p>
-</section>
+<footer>
+<h3>Kar Sewa Dal Sanstha</h3>
+<p>Seva Hi Param Dharam Hai</p>
+<p>© 2026 All Rights Reserved</p>
+</footer>
 
-<script src="script.js"></script>
 </body>
 </html>
