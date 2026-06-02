@@ -4,321 +4,68 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kar Sewa Dal</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
-body{
-    background:#f5f5f5;
-    color:#333;
-}
-
-header{
-    background:#ff9800;
-    color:white;
-    padding:20px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    font-size:28px;
-    font-weight:bold;
-}
-
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:20px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-.hero{
-    height:90vh;
-    background:
-    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-    url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1600");
-    background-size:cover;
-    background-position:center;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-}
-
-.hero-content h1{
-    font-size:60px;
-    margin-bottom:20px;
-}
-
-.hero-content p{
-    font-size:22px;
-    margin-bottom:30px;
-}
-
-.btn{
-    display:inline-block;
-    padding:15px 30px;
-    background:#ff9800;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    margin:10px;
-}
-
-section{
-    padding:80px 10%;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:40px;
-    font-size:38px;
-    color:#ff9800;
-}
-
-.about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-    align-items:center;
-}
-
-.about img{
-    width:100%;
-    border-radius:15px;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
-
-.card h3{
-    margin-bottom:10px;
-    color:#ff9800;
-}
-
-.stats{
-    background:#ff9800;
-    color:white;
-}
-
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    text-align:center;
-    gap:20px;
-}
-
-.stat h2{
-    font-size:50px;
-}
-
-.donate{
-    text-align:center;
-    background:white;
-}
-
-.contact{
-    background:#222;
-    color:white;
-}
-
-footer{
-    background:black;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-
-@media(max-width:768px){
-.about{
-grid-template-columns:1fr;
-}
-
-.hero-content h1{
-font-size:40px;
-}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<header>
-<div class="logo">Kar Sewa Dal</div>
-
 <nav>
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#">About</a></li>
-<li><a href="#">Programs</a></li>
-<li><a href="#">Volunteer</a></li>
-<li><a href="#">Donate</a></li>
-<li><a href="#">Contact</a></li>
-</ul>
+  <div class="logo">Kar Sewa Dal</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#volunteer">Volunteer</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
+
+<header class="hero">
+  <div>
+    <h1>Serving Humanity Through Seva</h1>
+    <p>Selfless Service • Stronger Communities</p>
+    <a class="btn" href="#volunteer">Become a Volunteer</a>
+  </div>
 </header>
 
-<section class="hero">
-<div class="hero-content">
-<h1>Serving Humanity Through Seva</h1>
-<p>Together we can create a better future through selfless service.</p>
-
-<a href="#" class="btn">Donate Now</a>
-<a href="#" class="btn">Become Volunteer</a>
-</div>
+<section id="about">
+<h2>Our Mission</h2>
+<p>Kar Sewa Dal works to uplift communities through education, healthcare, environmental initiatives, and humanitarian service.</p>
 </section>
 
-<section>
-<h2 class="section-title">About Us</h2>
-
-<div class="about">
-
-<img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800">
-
-<div>
-<h3>Our Mission</h3>
-<p>
-Kar Sewa Dal is committed to serving humanity through community service,
-education support, environmental initiatives, healthcare programs,
-and disaster relief efforts.
-</p>
-
-<br>
-
-<h3>Our Vision</h3>
-<p>
-To build a compassionate society where every individual receives support,
-respect, and opportunities to thrive.
-</p>
-</div>
-
-</div>
-</section>
-
-<section>
-<h2 class="section-title">Our Programs</h2>
-
+<section id="programs">
+<h2>What We Do</h2>
 <div class="cards">
-
-<div class="card">
-<h3>Education</h3>
-<p>Supporting students through scholarships and learning resources.</p>
-</div>
-
-<div class="card">
-<h3>Healthcare</h3>
-<p>Medical camps and awareness programs for communities.</p>
-</div>
-
-<div class="card">
-<h3>Environment</h3>
-<p>Tree plantation drives and environmental conservation projects.</p>
-</div>
-
-<div class="card">
-<h3>Disaster Relief</h3>
-<p>Providing emergency support during difficult times.</p>
-</div>
-
+<div class="card"><h3>Education</h3><p>Support for students and learning initiatives.</p></div>
+<div class="card"><h3>Healthcare</h3><p>Medical camps and awareness programs.</p></div>
+<div class="card"><h3>Environment</h3><p>Tree plantation and sustainability drives.</p></div>
+<div class="card"><h3>Relief</h3><p>Emergency assistance during crises.</p></div>
 </div>
 </section>
 
-<section class="stats">
-<div class="stats-grid">
-
-<div class="stat">
-<h2>500+</h2>
-<p>Volunteers</p>
-</div>
-
-<div class="stat">
-<h2>100+</h2>
-<p>Projects</p>
-</div>
-
-<div class="stat">
-<h2>50K+</h2>
-<p>People Helped</p>
-</div>
-
-<div class="stat">
-<h2>20+</h2>
-<p>Cities Reached</p>
-</div>
-
+<section id="impact">
+<h2>Our Impact</h2>
+<div class="stats">
+<div><span class="counter" data-target="10000">0</span><p>Lives Impacted</p></div>
+<div><span class="counter" data-target="5000">0</span><p>Trees Planted</p></div>
+<div><span class="counter" data-target="2000">0</span><p>Volunteers</p></div>
 </div>
 </section>
 
-<section class="donate">
-<h2 class="section-title">Support Our Cause</h2>
-
-<p>
-Your contribution helps us continue serving communities and changing lives.
-</p>
-
-<br>
-
-<a href="#" class="btn">Donate Securely</a>
-</section>
-
-<section>
-<h2 class="section-title">Volunteer Registration</h2>
-
-<form style="max-width:600px;margin:auto;">
-<input type="text" placeholder="Full Name"
-style="width:100%;padding:15px;margin:10px 0;">
-
-<input type="email" placeholder="Email Address"
-style="width:100%;padding:15px;margin:10px 0;">
-
-<input type="tel" placeholder="Phone Number"
-style="width:100%;padding:15px;margin:10px 0;">
-
-<textarea placeholder="Why do you want to volunteer?"
-style="width:100%;padding:15px;height:150px;margin:10px 0;"></textarea>
-
-<button class="btn">Submit</button>
+<section id="volunteer">
+<h2>Join Our Mission</h2>
+<form>
+<input type="text" placeholder="Full Name">
+<input type="email" placeholder="Email">
+<textarea placeholder="Why do you want to volunteer?"></textarea>
+<button type="submit">Submit</button>
 </form>
 </section>
 
-<section class="contact">
-<h2 class="section-title">Contact Us</h2>
-
-<center>
-<p>📞 +91 XXXXXXXXXX</p>
-<p>✉ info@karsewadal.org</p>
-<p>📍 Punjab, India</p>
-</center>
-
+<section id="contact">
+<h2>Contact Us</h2>
+<p>Email: info@karsewadal.org</p>
+<p>Phone: +91 XXXXX XXXXX</p>
 </section>
 
-<footer>
-<p>© 2026 Kar Sewa Dal. All Rights Reserved.</p>
-</footer>
-
+<script src="script.js"></script>
 </body>
 </html>
