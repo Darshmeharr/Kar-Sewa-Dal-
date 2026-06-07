@@ -1,200 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kar Sewa Dal Sanstha</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
-html{scroll-behavior:smooth}
-body{background:#f8f8f8;color:#222;transition:.3s}
-body.dark{background:#111;color:#eee}
-nav{position:fixed;top:0;width:100%;z-index:999;display:flex;justify-content:space-between;align-items:center;padding:15px 5%;backdrop-filter:blur(12px);background:rgba(255,255,255,.85)}
-body.dark nav{background:rgba(20,20,20,.85)}
-.logo{font-weight:700;color:#ff9800}
-nav ul{display:flex;gap:20px;list-style:none}
-nav a{text-decoration:none;color:inherit}
-.toggle{cursor:pointer;padding:8px 14px;border-radius:30px;background:#ff9800;color:#fff}
-.hero{height:100vh;position:relative;overflow:hidden}
-.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;animation:slider 18s infinite}
-.slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=80');animation-delay:0s}
-.slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1600&q=80');animation-delay:6s}
-.slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80');animation-delay:12s}
-@keyframes slider{0%,28%{opacity:1}33%,100%{opacity:0}}
-.overlay{position:absolute;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:20px}
-.btn{display:inline-block;background:#ff9800;color:#fff;padding:12px 25px;border-radius:30px;text-decoration:none;margin:5px}
-section{padding:90px 7%}
-.title{text-align:center;margin-bottom:30px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
-.card{background:#fff;padding:20px;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,.08);transition:.3s}
-body.dark .card{background:#1b1b1b}
-.card:hover{transform:translateY(-8px)}
-.stats{background:linear-gradient(135deg,#ff9800,#ffb300);color:#fff}
-.stat{text-align:center}
-.stat h2{font-size:3rem}
-.gallery img{width:100%;height:250px;object-fit:cover;border-radius:15px}
-form input,form textarea,select{width:100%;padding:12px;margin:10px 0}
-button{padding:12px 20px;border:none;background:#ff9800;color:white;border-radius:25px;cursor:pointer}
-footer{text-align:center;padding:30px;background:#000;color:#fff}
-.admin{border:2px dashed #ff9800;padding:20px;border-radius:15px}
-.news-item,.event-item{padding:10px;border-bottom:1px solid #ddd}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kar Sewa Dal - NGO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff9800;
+            --primary-hover: #e08600;
+            --bg-light: #fdfdfd;
+            --text-light: #2c3e50;
+            --card-light: #ffffff;
+            --bg-dark: #121212;
+            --text-dark: #f5f6fa;
+            --card-dark: #1e1e1e;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        html { scroll-behavior: smooth; }
+        
+        body { background: var(--bg-light); color: var(--text-light); transition: var(--transition); overflow-x: hidden; }
+        body.dark { background: var(--bg-dark); color: var(--text-dark); }
+
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; z-index: 999; display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; backdrop-filter: blur(15px); background: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(0,0,0,0.05); transition: var(--transition); }
+        body.dark nav { background: rgba(18, 18, 18, 0.8); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-weight: 700; font-size: 1.4rem; color: var(--primary); letter-spacing: 0.5px; }
+        nav ul { display: flex; gap: 30px; list-style: none; align-items: center; }
+        nav a { text-decoration: none; color: inherit; font-weight: 500; transition: var(--transition); font-size: 0.95rem; }
+        nav a:hover { color: var(--primary); }
+        .toggle { cursor: pointer; padding: 8px 16px; border-radius: 30px; background: var(--primary); color: #fff; font-weight: 500; font-size: 0.85rem; border: none; transition: var(--transition); }
+        .toggle:hover { background: var(--primary-hover); transform: translateY(-2px); }
+
+        /* Hero Slider */
+        .hero { height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .slider-container { position: absolute; inset: 0; z-index: 1; }
+        .slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out; }
+        .slide.active { opacity: 1; }
+        .overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7)); z-index: 2; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 20px; }
+        .hero-content { max-width: 800px; transform: translateY(20px); opacity: 0; animation: fadeInUp 1s forwards 0.5s; }
+        .hero h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 10px; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .hero h3 { font-size: 1.5rem; font-weight: 400; margin-bottom: 30px; opacity: 0.9; color: #f5f6fa; }
+        
+        @keyframes fadeInUp { to { transform: translateY(0); opacity: 1; } }
+
+        /* Buttons */
+        .btn { display: inline-block; background: var(--primary); color: #fff; padding: 14px 32px; border-radius: 30px; text-decoration: none; font-weight: 500; margin: 10px; transition: var(--transition); border: 2px solid transparent; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3); }
+        .btn:hover { background: var(--primary-hover); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4); }
+        .btn-outline { background: transparent; border: 2px solid #fff; color: #fff; box-shadow: none; }
+        .btn-outline:hover { background: #fff; color: #222; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2); }
+
+        /* Sections */
+        section { padding: 100px 8%; }
+        .title { text-align: center; margin-bottom: 50px; position: relative; }
+        .title h2 { font-size: 2.2rem; font-weight: 700; position: relative; display: inline-block; padding-bottom: 12px; }
+        .title h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--primary); border-radius: 2px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+        
+        /* Cards styling */
+        .card { background: var(--card-light); padding: 35px 25px; border-radius: 20px; box-shadow: var(--shadow); transition: var(--transition); border: 1px solid rgba(0,0,0,0.02); text-align: center; }
+        body.dark .card { background: var(--card-dark); border: 1px solid rgba(255,255,255,0.03); }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); }
+        .card h3 { font-size: 1.3rem; margin-top: 15px; }
+
+        /* Stats Section */
+        .stats { background: linear-gradient(135deg, #ff9800, #ffb300); color: #fff; padding: 70px 8%; }
+        .stat { text-align: center; }
+        .stat h2 { font-size: 3.5rem; font-weight: 700; margin-bottom: 5px; }
+        .stat p { font-size: 1rem; opacity: 0.9; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Gallery */
+        .gallery img { width: 100%; height: 280px; object-fit: cover; border-radius: 16px; transition: var(--transition); box-shadow: var(--shadow); }
+        .gallery img:hover { transform: scale(1.03); }
+
+        /* Items (Events / News) */
+        .item-list { max-width: 800px; margin: 0 auto; }
+        .event-item, .news-item { padding: 20px; border-radius: 12px; background: var(--card-light); margin-bottom: 15px; box-shadow: var(--shadow); display: flex; align-items: center; border-left: 5px solid var(--primary); transition: var(--transition); }
+        body.dark .event-item, body.dark .news-item { background: var(--card-dark); }
+        .event-item:hover, .news-item:hover { transform: translateX(5px); }
+
+        /* Forms & Inputs */
+        form { max-width: 600px; margin: 0 auto; background: var(--card-light); padding: 40px; border-radius: 24px; box-shadow: var(--shadow); }
+        body.dark form { background: var(--card-dark); }
+        input, textarea, select { width: 100%; padding: 14px 20px; margin-bottom: 20px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); background: transparent; color: inherit; font-size: 0.95rem; transition: var(--transition); }
+        body.dark input, body.dark textarea, body.dark select { border: 1px solid rgba(255,255,255,0.1); }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.1); }
+        textarea { height: 120px; resize: vertical; }
+        
+        button { width: 100%; padding: 14px; border: none; background: var(--primary); color: white; font-weight: 600; font-size: 1rem; border-radius: 12px; cursor: pointer; transition: var(--transition); box-shadow: 0 4px 15px rgba(255, 152, 0, 0.2); }
+        button:hover { background: var(--primary-hover); transform: translateY(-2px); }
+
+        /* Custom Dropdown Center Styling */
+        .lang-section { text-align: center; max-width: 300px; margin: 0 auto; }
+
+        /* Admin Section */
+        .admin { border: 2px dashed var(--primary); padding: 40px; border-radius: 24px; max-width: 800px; margin: 50px auto; background: rgba(255, 152, 0, 0.02); }
+        .admin h2 { margin-bottom: 15px; font-size: 1.5rem; }
+        #adminNews { margin-top: 20px; }
+
+        /* Footer */
+        footer { text-align: center; padding: 40px 20px; background: #111; color: #aaa; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); }
+        footer strong { color: #fff; }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            nav { padding: 15px 5%; }
+            nav ul { display: none; } /* Simplified for structural cleanup */
+            .hero h1 { font-size: 2.3rem; }
+            .hero h3 { font-size: 1.1rem; }
+            section { padding: 60px 5%; }
+        }
+    </style>
 </head>
 <body>
 
 <nav>
-<div class="logo">Kar Sewa Dal Sanstha</div>
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#events">Events</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-<div class="toggle" onclick="toggleTheme()">🌙 Mode</div>
+    <div class="logo" id="navLogo">Kar Sewa Dal</div>
+    <ul>
+        <li><a href="#about" id="lnAbout">About</a></li>
+        <li><a href="#services" id="lnServices">Services</a></li>
+        <li><a href="#events" id="lnEvents">Events</a></li>
+        <li><a href="#contact" id="lnContact">Contact</a></li>
+    </ul>
+    <button class="toggle" onclick="toggleTheme()">🌙 Mode</button>
 </nav>
 
 <header class="hero">
-<div class="slide"></div><div class="slide"></div><div class="slide"></div>
-<div class="overlay">
-<div>
-<h1 id="titleText">Kar Sewa Dal Sanstha</h1>
-<h3 id="subtitle">Seva Hi Param Dharam Hai</h3>
-<a href="#volunteer" class="btn">Volunteer</a>
-<a href="#donate" class="btn">Donate</a>
-</div>
-</div>
+    <div class="slider-container">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80');"></div>
+    </div>
+    <div class="overlay">
+        <div class="hero-content">
+            <h1 id="titleText">Kar Sewa Dal - NGO</h1>
+            <h3 id="subtitle">Seva Hi Param Dharam Hai</h3>
+            <a href="#volunteer" class="btn" id="btnVol">Volunteer</a>
+            <a href="#donate" class="btn btn-outline" id="btnDon">Donate</a>
+        </div>
+    </div>
 </header>
 
 <section id="about">
-<div class="title"><h2>About Us</h2></div>
-<p>Dedicated to langar seva, education, healthcare support, community welfare and animal care.</p>
+    <div class="title"><h2 id="hAbout">About Us</h2></div>
+    <div style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8;">
+        <p id="aboutText">Dedicated to langar seva, education, healthcare support, community welfare and animal care.</p>
+    </div>
 </section>
 
 <section id="services">
-<div class="title"><h2>Our Services</h2></div>
-<div class="grid">
-<div class="card"><h3>🍲 Langar Seva</h3></div>
-<div class="card"><h3>🏥 Healthcare</h3></div>
-<div class="card"><h3>📚 Education</h3></div>
-<div class="card"><h3>🐾 Animal Welfare</h3></div>
-</div>
+    <div class="title"><h2 id="hServices">Our Services</h2></div>
+    <div class="grid">
+        <div class="card">
+            <div style="font-size: 2.5rem;">🍲</div>
+            <h3 id="s1">Langar Seva</h3>
+        </div>
+        <div class="card">
+            <div style="font-size: 2.5rem;">🏥</div>
+            <h3 id="s2">Healthcare</h3>
+        </div>
+        <div class="card">
+            <div style="font-size: 2.5rem;">📚</div>
+            <h3 id="s3">Education</h3>
+        </div>
+        <div class="card">
+            <div style="font-size: 2.5rem;">🐾</div>
+            <h3 id="s4">Animal Welfare</h3>
+        </div>
+    </div>
 </section>
 
 <section class="stats">
-<div class="grid">
-<div class="stat"><h2 id="c1">0</h2><p>Meals Served</p></div>
-<div class="stat"><h2 id="c2">0</h2><p>Volunteers</p></div>
-<div class="stat"><h2 id="c3">0</h2><p>Families Helped</p></div>
-<div class="stat"><h2 id="c4">0</h2><p>Tuition Centres</p></div>
-</div>
+    <div class="grid">
+        <div class="stat"><h2 id="c1">0</h2><p id="st1">Meals Served</p></div>
+        <div class="stat"><h2 id="c2">0</h2><p id="st2">Volunteers</p></div>
+        <div class="stat"><h2 id="c3">0</h2><p id="st3">Families Helped</p></div>
+        <div class="stat"><h2 id="c4">0</h2><p id="st4">Tuition Centres</p></div>
+    </div>
 </section>
 
 <section>
-<div class="title"><h2>Gallery</h2></div>
-<div class="grid gallery">
-<img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80">
-<img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80">
-<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80">
-</div>
+    <div class="title"><h2 id="hGallery">Gallery</h2></div>
+    <div class="grid gallery">
+        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80" alt="Seva">
+        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80" alt="Community">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Education">
+    </div>
 </section>
 
 <section id="events">
-<div class="title"><h2>Event Calendar</h2></div>
-<div class="event-item">15 June - Langar Seva Camp</div>
-<div class="event-item">20 June - Blood Donation Drive</div>
-<div class="event-item">28 June - Education Support Program</div>
+    <div class="title"><h2 id="hEvents">Upcoming Events</h2></div>
+    <div class="item-list">
+        <div class="event-item">📆 &nbsp; <strong>15 June</strong> &nbsp; - Langar Seva Camp</div>
+        <div class="event-item">📆 &nbsp; <strong>20 June</strong> &nbsp; - Blood Donation Drive</div>
+        <div class="event-item">📆 &nbsp; <strong>28 June</strong> &nbsp; - Education Support Program</div>
+    </div>
 </section>
 
-<section>
-<div class="title"><h2>News & Updates</h2></div>
-<div class="news-item">New tuition centre inaugurated.</div>
-<div class="news-item">5000+ meals served this month.</div>
+<section id="news">
+    <div class="title"><h2 id="hNews">News & Updates</h2></div>
+    <div class="item-list">
+        <div class="news-item">📢 &nbsp; New tuition centre inaugurated.</div>
+        <div class="news-item">📢 &nbsp; 5000+ meals served this month.</div>
+        <div id="adminNews"></div>
+    </div>
 </section>
 
 <section id="volunteer">
-<div class="title"><h2>Volunteer Registration</h2></div>
-<form>
-<input placeholder="Full Name">
-<input placeholder="Phone Number">
-<input placeholder="Email">
-<textarea placeholder="How would you like to help?"></textarea>
-<button>Register</button>
-</form>
+    <div class="title"><h2 id="hVolForm">Volunteer Registration</h2></div>
+    <form onsubmit="event.preventDefault(); alert('Thank you for registering!');">
+        <input placeholder="Full Name" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <input type="email" placeholder="Email Address" required>
+        <textarea placeholder="How would you like to help?"></textarea>
+        <button type="submit">Submit Registration</button>
+    </form>
 </section>
 
-<section id="donate">
-<div class="title"><h2>Support Our Mission</h2></div>
-<p>Integrate your Razorpay payment link below.</p>
-<a class="btn" href="https://razorpay.com" target="_blank">Donate via Razorpay</a>
+<section id="donate" style="text-align: center;">
+    <div class="title"><h2 id="hDonate">Support Our Mission</h2></div>
+    <p style="margin-bottom: 25px; font-size: 1.1rem;">Your contributions help keep our kitchens running and children studying.</p>
+    <a class="btn" href="https://razorpay.com" target="_blank">Donate via Razorpay</a>
 </section>
 
-<section>
-<div class="title"><h2>Language</h2></div>
-<select onchange="changeLang(this.value)">
-<option value="en">English</option>
-<option value="hi">Hindi</option>
-<option value="pa">Punjabi</option>
-</select>
+<section class="lang-section">
+    <div class="title"><h2 id="hLang">Language</h2></div>
+    <select onchange="changeLang(this.value)">
+        <option value="en">English</option>
+        <option value="hi">Hindi (हिंदी)</option>
+        <option value="pa">Punjabi (ਪੰਜਾਬੀ)</option>
+    </select>
 </section>
 
 <section class="admin">
-<h2>Admin Dashboard (Local Demo)</h2>
-<p>In a real deployment this should use Firebase/Supabase for shared updates.</p>
-<input id="newsInput" placeholder="Add News">
-<button onclick="addNews()">Add News</button>
-<div id="adminNews"></div>
+    <h2>🛠️ Admin Dashboard (Demo Hub)</h2>
+    <p style="margin-bottom: 15px; opacity: 0.8;">Locally append community alerts or announcements below:</p>
+    <input id="newsInput" placeholder="Type new update details...">
+    <button onclick="addNews()">Publish Update</button>
 </section>
 
-<section id="contact">
-<div class="title"><h2>Contact</h2></div>
-<p>Email: info@karsewadal.org</p>
-<p>Phone: +91 XXXXX XXXXX</p>
+<section id="contact" style="text-align: center;">
+    <div class="title"><h2 id="hContact">Contact Us</h2></div>
+    <p style="font-size: 1.1rem; margin-bottom: 10px;">📧 Email: info@karsewadal.org</p>
+    <p style="font-size: 1.1rem;">📞 Phone: +91 XXXXX XXXXX</p>
 </section>
 
 <footer>
-© 2026 Kar Sewa Dal Sanstha | Website by Darshmehar Singh Lamba
+    © 2026 <strong>Kar Sewa Dal Sanstha</strong> | Managed by Darshmehar Singh Lamba
 </footer>
 
 <script>
-function animate(id,target){
- let n=0;
- let i=setInterval(()=>{
-  n+=Math.ceil(target/100);
-  if(n>=target){n=target;clearInterval(i)}
-  document.getElementById(id).innerText=n+"+";
- },20);
+// Smooth Metric Counter Animation
+function animate(id, target){
+    let n = 0;
+    let speed = Math.ceil(target / 80);
+    let i = setInterval(() => {
+        n += speed;
+        if(n >= target){
+            n = target;
+            clearInterval(i);
+        }
+        document.getElementById(id).innerText = n.toLocaleString() + "+";
+    }, 25);
 }
-animate("c1",10000);
-animate("c2",500);
-animate("c3",1200);
-animate("c4",9);
+animate("c1", 10000);
+animate("c2", 500);
+animate("c3", 1200);
+animate("c4", 9);
 
+// Seamless Header Background Slider Loop
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+}, 5000);
+
+// Smooth Dark/Light Toggle Theme switcher
 function toggleTheme(){
- document.body.classList.toggle("dark");
+    document.body.classList.toggle("dark");
+    const toggleBtn = document.querySelector('.toggle');
+    if(document.body.classList.contains('dark')) {
+        toggleBtn.innerText = "☀️ Mode";
+    } else {
+        toggleBtn.innerText = "🌙 Mode";
+    }
 }
 
+// Fixed translations routing logic via cleaner targeted structural selectors
 function changeLang(lang){
- if(lang==="hi"){
-  titleText.innerText="कर सेवा दल संस्था";
-  subtitle.innerText="सेवा ही परम धर्म है";
- }
- else if(lang==="pa"){
-  titleText.innerText="ਕਰ ਸੇਵਾ ਦਲ ਸੰਸਥਾ";
-  subtitle.innerText="ਸੇਵਾ ਹੀ ਪਰਮ ਧਰਮ ਹੈ";
- }
- else{
-  titleText.innerText="Kar Sewa Dal Sanstha";
-  subtitle.innerText="Seva Hi Param Dharam Hai";
- }
+    if(lang === "hi"){
+        document.getElementById("titleText").innerText = "कर सेवा दल संस्था";
+        document.getElementById("subtitle").innerText = "सेवा ही परम धर्म है";
+        document.getElementById("hAbout").innerText = "हमारे बारे में";
+        document.getElementById("aboutText").innerText = "लंगर सेवा, शिक्षा, स्वास्थ्य सहायता, सामुदायिक कल्याण और पशु देखभाल के लिए समर्पित।";
+        document.getElementById("hServices").innerText = "हमारी सेवाएँ";
+        document.getElementById("s1").innerText = "लंगर सेवा";
+        document.getElementById("s2").innerText = "स्वास्थ्य सेवा";
+        document.getElementById("s3").innerText = "शिक्षा सहायता";
+        document.getElementById("s4").innerText = "जीव भलाई";
+    }
+    else if(lang === "pa"){
+        document.getElementById("titleText").innerText = "ਕਰ ਸੇਵਾ ਦਲ ਸੰਸਥਾ";
+        document.getElementById("subtitle").innerText = "ਸੇਵਾ ਹੀ ਪਰਮ ਧਰਮ ਹੈ";
+        document.getElementById("hAbout").innerText = "ਸਾਡੇ ਬਾਰੇ";
+        document.getElementById("aboutText").innerText = "ਲੰਗਰ ਸੇਵਾ, ਸਿੱਖਿਆ, ਸਿਹਤ ਸੰਭਾਲ ਸਹਾਇਤਾ, ਭਾਈਚਾਰਕ ਭਲਾਈ ਅਤੇ ਪਸ਼ੂਆਂ ਦੀ ਦੇਖਭਾਲ ਲਈ ਸਮਰਪਿਤ।";
+        document.getElementById("hServices").innerText = "ਸਾਡੀਆਂ ਸੇਵਾਵਾਂ";
+        document.getElementById("s1").innerText = "ਲੰਗਰ ਸੇਵਾ";
+        document.getElementById("s2").innerText = "ਸਿਹਤ ਸੇਵਾਵਾਂ";
+        document.getElementById("s3").innerText = "ਸਿੱਖਿਆ ਸਹਾਇਤਾ";
+        document.getElementById("s4").innerText = "ਪਸ਼ੂ ਭਲਾਈ";
+    }
+    else {
+        document.getElementById("titleText").innerText = "Kar Sewa Dal - NGO";
+        document.getElementById("subtitle").innerText = "Seva Hi Param Dharam Hai";
+        document.getElementById("hAbout").innerText = "About Us";
+        document.getElementById("aboutText").innerText = "Dedicated to langar seva, education, healthcare support, community welfare and animal care.";
+        document.getElementById("hServices").innerText = "Our Services";
+        document.getElementById("s1").innerText = "Langar Seva";
+        document.getElementById("s2").innerText = "Healthcare";
+        document.getElementById("s3").innerText = "Education";
+        document.getElementById("s4").innerText = "Animal Welfare";
+    }
 }
 
+// Persistent LocalStorage Feed for Live Testing Updates
 function addNews(){
- let v=document.getElementById("newsInput").value;
- document.getElementById("adminNews").innerHTML += "<div>"+v+"</div>";
- localStorage.setItem("adminNews",document.getElementById("adminNews").innerHTML);
+    let val = document.getElementById("newsInput").value;
+    if(!val.trim()) return alert("Please type something first!");
+    let template = `<div class="news-item">📢 &nbsp; ${val}</div>`;
+    document.getElementById("adminNews").innerHTML += template;
+    localStorage.setItem("adminNews", document.getElementById("adminNews").innerHTML);
+    document.getElementById("newsInput").value = "";
 }
-document.getElementById("adminNews").innerHTML=localStorage.getItem("adminNews")||"";
+document.getElementById("adminNews").innerHTML = localStorage.getItem("adminNews") || "";
 </script>
 </body>
 </html>
