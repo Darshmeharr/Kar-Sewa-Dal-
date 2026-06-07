@@ -195,9 +195,9 @@
 <section id="events">
     <div class="title"><h2 id="hEvents">Upcoming Events</h2></div>
     <div class="item-list">
-        <div class="event-item">📆 &nbsp; <strong>15 June</strong> &nbsp; - Langar Seva Camp</div>
-        <div class="event-item">📆 &nbsp; <strong>20 June</strong> &nbsp; - Blood Donation Drive</div>
-        <div class="event-item">📆 &nbsp; <strong>28 June</strong> &nbsp; - Education Support Program</div>
+        <div class="event-item">📆 &nbsp; <strong></strong> &nbsp; - Langar Seva Camp</div>
+        <div class="event-item">📆 &nbsp; <strong></strong> &nbsp; - Blood Donation Drive</div>
+        <div class="event-item">📆 &nbsp; <strong></strong> &nbsp; - Education Support Program</div>
     </div>
 </section>
 
@@ -211,12 +211,15 @@
 </section>
 
 <section id="volunteer">
-    <div class="title"><h2 id="hVolForm">Volunteer Registration</h2></div>
-    <form onsubmit="event.preventDefault(); alert('Thank you for registering!');">
-        <input placeholder="Full Name" required>
-        <input type="tel" placeholder="Phone Number" required>
-        <input type="email" placeholder="Email Address" required>
-        <textarea placeholder="How would you like to help?"></textarea>
+    <div class="title">
+        <h2 id="hVolForm">Volunteer Registration</h2>
+    </div>
+
+    <form action="mailto:info@karseva.org" method="post" enctype="text/plain">
+        <input type="text" name="Full Name" placeholder="Full Name" required>
+        <input type="tel" name="Phone Number" placeholder="Phone Number" required>
+        <input type="email" name="Email Address" placeholder="Email Address" required>
+        <textarea name="Help Interest" placeholder="How would you like to help?"></textarea>
         <button type="submit">Submit Registration</button>
     </form>
 </section>
